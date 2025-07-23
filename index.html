@@ -226,10 +226,10 @@
             ]
 
             let appSetMembers = [
-                { name: 'OLIVIA BOLTON', appLinkName: 'obolton' },
-                { name: 'VIDHI RANA', appLinkName: 'vrana' },
-                { name: 'HAILEY SELLMAN', appLinkName: 'hsellman' },
-                { name: 'AARON BERGLAND', appLinkName: 'abergland' },
+                { name: 'OLIVIA BOLTON', appLinkName: 'olivia-bolton' },
+                { name: 'VIDHI RANA', appLinkName: 'vidhi-rana' },
+                { name: 'HAILEY SELLMAN', appLinkName: 'hailey-sellman' },
+                { name: 'AARON BERGLAND', appLinkName: 'aaron-bergland' },
             ]
 
             let bdrMembers = [
@@ -265,7 +265,7 @@
 
                 appSetMembers.forEach((appSetMember, index) => {
                     if (member.name === appSetMember.name) {
-                        sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://app.hubspot.com/meetings/${appSetMember.appLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Schedule with me</span></a>`
+                        sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://scheduler.zoom.us/${appSetMember.appLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Schedule time with me</span></a>`
                     }
                 })
                 if (member.img) {
