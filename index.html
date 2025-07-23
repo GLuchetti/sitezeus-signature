@@ -1,0 +1,428 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sigs</title>
+        <style>
+            textarea {
+                color: black;
+                width: 100%;
+                height: 200px;
+            }
+
+            .signature {
+                position: relative;
+                width: 800px;
+            }
+
+            .sourcecode {
+                margin: 0 0 80px;
+            }
+
+            .signature .source-link {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                /* user-select: none; */
+            }
+
+            .signature .source-link img {
+                display: block;
+                width: 100%;
+            }
+
+            .copy-source {
+                display: none;
+            }
+
+            .show {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="signatures"></div>
+
+        <script>
+            // Switch showWebinarLink to true to show the webinar link in the signature
+            // Link text can be changed in the linkText variable
+            const showWebinarLink = false;
+            const link="https://insites.sitezeus.com/webinars/success-vs-failure-emerging-brands-guide-to-successful-growth?utm_source=BDR&utm_medium=EmailSignature&utm_campaign=EmergingWebinar2025&utm_term=&utm_content=EmergingWebinar2025EmailSignature"
+            const linkText =
+                'Sink or swim: Ensure successful expansion for your emerging brand →'
+            let team = [
+                {
+                    name: 'SHANNON CLINTON',
+                    title: 'Chief Revenue Officer',
+                    phone: '386.212.1239',
+                    email: 'sclinton@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_shannon-clinton.png',
+                },
+                {
+                    name: 'EMILY CARTAFALSA',
+                    title: 'Senior Product Owner',
+                    phone: '856.203.0046',
+                    email: 'ecartafalsa@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_emily-cartafalsa2.png',
+                },
+                {
+                    name: 'WILL MORGAN',
+                    title: 'Enterprise Account Executive and SMB Manager',
+                    phone: '540.878.6770',
+                    email: 'wmorgan@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_will-morgan.png',
+                },
+                {
+                    name: 'GIOVANNA LUCHETTI',
+                    title: 'Business Development Manager',
+                    phone: '954.371.7127',
+                    email: 'gluchetti@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature-Headshots-ALL_gigi-luchetti.png',
+                },
+
+                {
+                    name: 'SEAN RYAN',
+                    title: 'VP of Operations',
+                    phone: '518.423.8279',
+                    email: 'sryan@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_sean-ryan2.png',
+                },
+                {
+                    name: 'JORGE HERMEZ',
+                    title: 'Chief Product Officer',
+                    phone: '813.732.2324',
+                    email: 'jhermez@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Signature%20Headshots%20ALL_jorge-hermez2.png',
+                },
+
+                {
+                    name: 'KATIE DRIGGERS',
+                    title: 'Marketing Manager',
+                    phone: '',
+                    email: 'kdriggers@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_katie-driggers.png',
+                },
+                {
+                    name: 'DREW WAGNER',
+                    title: 'Controller',
+                    phone: '781.635.6550',
+                    email: 'dwagner@sitezeus.com',
+                    img: 'https://cdn2.hubspot.net/hubfs/1763074/Signature-Headshots-ALL-drew.png',
+                },
+                {
+                    name: 'HANNIBAL BALDWIN',
+                    title: 'Co-founder & CEO',
+                    phone: '813.477.1380',
+                    email: 'hbaldwin@sitezeus.com',
+                    img: 'https://cdn2.hubspot.net/hubfs/1763074/Signature-Headshots-ALL-hannibal-baldwin.png',
+                },
+                {
+                    name: 'OLIVIA BOLTON',
+                    title: 'Client Support Analyst',
+                    phone: '254.220.5768',
+                    email: 'obolton@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Signature-Headshots-ALL-livi-bolton.png',
+                },
+
+                {
+                    name: 'LUCAS BONEY',
+                    title: 'Enterprise Account Executive',
+                    phone: '727.514.3716',
+                    email: 'lboney@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature-Headshots-ALL-Lucas-Boney.png',
+                },
+                {
+                    name: 'DHRUV KAPOOR',
+                    title: 'Machine Learning Engineer',
+                    phone: '778.222.2443',
+                    email: 'dkapoor@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_dhruv-kapoor.png',
+                },
+                {
+                    name: 'KYLE NUNERY',
+                    title: 'Senior Full Stack Engineer',
+                    phone: '407.353.5542',
+                    email: 'knunery@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_kyle-nunery.png',
+                },
+                {
+                    name: 'ZAC FINN',
+                    title: 'Senior Full Stack Developer',
+                    phone: '213.328.0218',
+                    email: 'zfinn@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_zac-finn.png',
+                },
+                {
+                    name: 'JUAN MARTINEZ',
+                    title: 'Data Scientist',
+                    phone: '707.328.9933',
+                    email: 'jmartinez@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_juan-martinez.png',
+                },
+                {
+                    name: 'DAKODA SANDERS',
+                    title: 'Machine Learning Engineer',
+                    phone: '352.459.1610',
+                    email: 'dsanders@sitezeus.com',
+                    img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_dakoda-sanders.png',
+                },
+                {
+                    name: 'PATRICK MANIEGO',
+                    title: 'Emerging Brands Account Executive',
+                    phone: '407.451.1159',
+                    email: 'pmaniego@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_patrick-maniego.png',
+                },
+                {
+                    name: 'JAYNA CRAIG',
+                    title: 'Human Resources',
+                    phone: '727.415.3912',
+                    email: 'jcraig@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_jayna-craig.png',
+                },
+                {
+                    name: 'TOM ANDERSON',
+                    title: 'Business Development Representative',
+                    phone: '508.768.8637',
+                    email: 'tanderson@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_tom-anderson.png',
+                },
+                {
+                    name: 'CELIA DURING',
+                    title: 'Data Analyst Intern',
+                    phone: '727.479.4697',
+                    email: 'cduring@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_celia-during.png',
+                },
+                {
+                    name: 'BENJAMIN FAZZINA',
+                    title: 'Emerging Brands Account Executive',
+                    phone: '203.980.4923',
+                    email: 'bfazzina@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_ben-fazzina.png',
+                },
+                {
+                    name: 'ALAN MAY',
+                    title: 'Support Analyst',
+                    phone: '916.206.5626',
+                    email: 'amay@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_alan-may.png',
+                },
+                {
+                    name: 'OTTO DEMUTH',
+                    title: 'Sr. Business Development Representative',
+                    phone: '843.327.4471',
+                    email: 'odemuth@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_otto-demuth.png',
+                },
+                {
+                    name: 'TY KINGSLEY',
+                    title: 'Marketing Intern',
+                    phone: '727.307.9006',
+                    email: 'tkingsley@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_ty-kingsley.png',
+                },
+                {
+                    name: 'MELISSA BERRY',
+                    title: 'Support Analyst',
+                    phone: '484.252.1823',
+                    email: 'mberry@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_melissa-berry.png',
+                },
+                {
+                    name: 'LIZ BLANEY',
+                    title: 'Product Owner',
+                    phone: '727.946.4735',
+                    email: 'lblaney@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_liz-blaney.png',
+                },
+                {
+                    name: 'AMIDORI ANDERSON',
+                    title: 'Business Development Representative',
+                    phone: '775.997.9791',
+                    email: 'aanderson@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_amidori-anderson.png',
+                },
+                {
+                    name: 'ELLIE KRIZNER',
+                    title: 'Business Development Representative',
+                    phone: '724.550.8028',
+                    email: 'ekrizner@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_ellie-krizner.png',
+                },
+                {
+                    name: 'AARON WAITT  ',
+                    title: 'Business Development Representative',
+                    phone: '207.604.9741',
+                    email: 'awaitt@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_aaron-waitt.png',
+                },
+                {
+                    name: 'NICK BOWKER',
+                    title: 'Business Development Representative',
+                    phone: '774.249.9579',
+                    email: 'nbowker@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_nick-bowker.png',
+                },
+                {
+                    name: 'VIDHI RANA',
+                    title: 'Support Analyst',
+                    phone: '734.756.8075',
+                    email: 'vrana@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_vidhi-rana.png',
+                },
+         
+                {
+                    name: 'ZACK DONOVAN',
+                    title: 'Business Development Representative',
+                    phone: '804.894.3416',
+                    email: 'zdonovan@sitezeus.com',
+                    img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_zack-donavan.png',
+                },
+            ]
+
+            let appSetMembers = [
+                { name: 'ZACHERY ROBERSON', appLinkName: 'zroberson' },
+                { name: 'OLIVIA BOLTON', appLinkName: 'obolton' },
+            ]
+
+            let bdrMembers = [
+                {
+                    title: 'Business Development Representative',
+                    name: 'GIOVANNA LUCHETTI',
+                },
+            ]
+            let otherReps = [
+                { title: 'Enterprise Account Executive' },
+                { title: 'Emerging Brands Account Executive' },
+            ]
+
+            team = team.sort(function (a, b) {
+                const [a_first, a_last] = a.name.split(' ')
+                const [b_first, b_last] = b.name.split(' ')
+
+                if (a_last < b_last) {
+                    return -1
+                }
+                if (a_last > b_last) {
+                    return 1
+                }
+                return 0
+            })
+
+            team.forEach((member, i) => {
+                let signature = document.createElement('div')
+                signature.className = `signature`
+                signature.innerHTML = `<div class="source-link" title="Toggle ${member.name}'s sourcecode"><img src="https://f.hubspotusercontent20.net/hubfs/1763074/code.svg"></div>`
+
+                let sourcecode = `<div class="sourcecode">`
+
+                appSetMembers.forEach((appSetMember, index) => {
+                    if (member.name === appSetMember.name) {
+                        sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://app.hubspot.com/meetings/${appSetMember.appLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Schedule with SiteZeus Support</span></a>`
+                    }
+                })
+                if (member.img) {
+                    sourcecode += `<img src="${member.img}?noresize" width="114" height="114" /><br><br>`
+                }
+                if (member.name) {
+                    sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;">  <strong>${member.name}</strong></span><span style="color: #929bbd; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"> | ${member.title} | SiteZeus®</span><br><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">1211 N West Shore Blvd Ste 501, Tampa, FL 33607</span><br>`
+                }
+
+                if (member.phone) {
+                    sourcecode += `<span style="color: #1796ff; line-height: 30px!important;font-family:Calibri; font-size:16px!important;"><strong>D</strong></span><span style="color: #929bbd; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"> ${member.phone} | </span>`
+                }
+                //IF WEBINAR LINK IS NEEDED
+                if (showWebinarLink === true) {
+                    if (
+                        member.title ===
+                            'Business Development Representative' ||
+                        member.name === 'GIOVANNA LUCHETTI' ||
+                        member.name === 'OTTO DEMUTH'
+                    ) {
+                        sourcecode += ` <span style="color: #1796ff; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">
+                    <strong>E </strong>
+                </span>
+                <a style="color: #929bbd!important; font-size: 16px!important; line-height: 30px!important; text-decoration: underline" href="mailto:${member.email}">
+                    <span style="color: #929bbd; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">${member.email}</span>
+                </a>
+                <br>
+                <p></p>
+                <span style="color: #1796ff; line-height: 30px!important; text-decoration: none; font-family: Calibri; font-size: 16px!important;">
+                    <strong>💻WEBINAR:</strong>
+                </span>
+                <a style="font-size: 16px!important; text-decoration-color:#707ca9;" href=${link} target="_blank" rel="noopener">
+                    <span style="color: #707ca9; line-height: 30px!important;  font-family: Calibri; font-size: 16px!important;">
+                  ${linkText}
+                    </span>
+                </a>
+                <br>
+                <br></div>`
+                    } else if (
+                        member.title === 'Enterprise Account Executive' ||
+                        member.title === 'Emerging Brands Account Executive' ||
+                        member.name === 'WILL MORGAN'
+                    ) {
+                        sourcecode += ` <span style="color: #1796ff; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">
+                    <strong>E </strong>
+                </span>
+                <a style="color: #929bbd!important; font-size: 16px!important; line-height: 30px!important; text-decoration: underline" href="mailto:${member.email}">
+                    <span style="color: #929bbd; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">${member.email}</span>
+                </a>
+                <br>
+                <p></p>
+                <span style="color: #1796ff; line-height: 30px!important; text-decoration: none; font-family: Calibri; font-size: 16px!important;">
+                    <strong>💻WEBINAR:</strong>
+                </span>
+                <a style="font-size: 16px!important; text-decoration-color:#707ca9;" href=${link} target="_blank" rel="noopener">
+                    <span style="color: #707ca9; line-height: 30px!important;  font-family: Calibri; font-size: 16px!important;">${linkText}
+        
+                    </span>
+                </a>
+                <br>
+                <br></div>`
+                    } else {
+                        sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a><br><br></div>`
+                    }
+                } else {
+                    if (
+                        member.title ===
+                            'Business Development Representative' ||
+                        member.title ===
+                            'Sr. Business Development Representative' ||
+                        member.name === 'GIOVANNA LUCHETTI'
+                    ) {
+                        sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/?utm_source=BDR&utm_medium=email&utm_campaign=BDREmails&utm_term=&utm_content=BDREmailHomepage" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a> | <a style="font-size:16px!important;" href="https://sitezeus.com/schedule-a-demo/?utm_source=BDR&utm_medium=email&utm_campaign=ScheduleADemo&utm_term=&utm_content=SADBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SCHEDULE A DEMO</strong></span></a><br><br></div>`
+                    } else {
+                        sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a><br><br></div>`
+                    }
+                }
+
+                let copysource = `
+            		  	<div class="copy-source">
+            				<textarea onfocus="this.select();" onmouseup="return false;">${sourcecode}</textarea>
+            				<br><br><br>
+            			</div>
+            		  `
+
+                signature.innerHTML += sourcecode + copysource
+                document.querySelector('.signatures').appendChild(signature)
+            })
+
+            let sourcelinks = document.querySelectorAll('.source-link')
+
+            sourcelinks.forEach((val, i) => {
+                val.addEventListener('click', function (e) {
+                    e.target
+                        .closest('.signature')
+                        .querySelector('.copy-source')
+                        .classList.toggle('show')
+                })
+            })
+        </script>
+    </body>
+</html>
