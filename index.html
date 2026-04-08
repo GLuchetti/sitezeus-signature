@@ -224,17 +224,6 @@
                 { name: 'MITCHELL GUNDERSON', hubLinkName: 'mitchell-gunderson' },
             ]
 
-            let bdrMembers = [
-                {
-                    title: 'Business Development Representative',
-                    name: 'GIGI LUCHETTI',
-                },
-            ]
-            let otherReps = [
-                { title: 'Enterprise Account Executive' },
-                { title: 'Emerging Brands Account Executive' },
-            ]
-
             team = team.sort(function (a, b) {
                 const [a_first, a_last] = a.name.split(' ')
                 const [b_first, b_last] = b.name.split(' ')
@@ -255,15 +244,9 @@
 
                 let sourcecode = `<div class="sourcecode">`
 
-                appSetMembers.forEach((appSetMember, index) => {
+                appSetMembers.forEach((appSetMember) => {
                     if (member.name === appSetMember.name) {
                         sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://scheduler.zoom.us/${appSetMember.appLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Schedule time with me</span></a>`
-                    }
-                })
-
-                salesBookMembers.forEach((salesMember) => {
-                    if (member.name === salesMember.name) {
-                        sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://meetings.hubspot.com/${salesMember.hubLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Book time with me</span></a>`
                     }
                 })
 
@@ -285,7 +268,13 @@
                 ) {
                     sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/?utm_source=BDR&utm_medium=Signature&utm_campaign=HomePage&utm_content=HomePageBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a> | <a style="font-size:16px!important;" href="https://sitezeus.com/schedule-a-demo/?utm_source=BDR&utm_medium=Signature&utm_campaign=SAD&utm_content=SADBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SCHEDULE A DEMO</strong></span></a><br><br></div>`
                 } else {
-                    sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a><br><br></div>`
+                    let salesBookLink = ''
+                    salesBookMembers.forEach((salesMember) => {
+                        if (member.name === salesMember.name) {
+                            salesBookLink = ` | <a style="font-size:16px!important;" href="https://meetings.hubspot.com/${salesMember.hubLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>BOOK TIME WITH ME</strong></span></a>`
+                        }
+                    })
+                    sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a>${salesBookLink}<br><br></div>`
                 }
 
                 let copysource = `
