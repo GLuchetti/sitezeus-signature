@@ -46,13 +46,6 @@
     <body>
         <div class="signatures"></div>
 
-        <script>
-            // Switch showWebinarLink to true to show the webinar link in the signature
-            // Link text can be changed in the linkText variable
-            const showWebinarLink = false;
-            const link="https://insites.sitezeus.com/webinars/success-vs-failure-emerging-brands-guide-to-successful-growth?utm_source=BDR&utm_medium=EmailSignature&utm_campaign=EmergingWebinar2025&utm_term=&utm_content=EmergingWebinar2025EmailSignature"
-            const linkText =
-                'Sink or swim: Ensure successful expansion for your emerging brand →'
             let team = [
                 {
                     name: 'HANNIBAL BALDWIN',
@@ -282,53 +275,6 @@
                 if (member.phone) {
                     sourcecode += `<span style="color: #1796ff; line-height: 30px!important;font-family:Calibri; font-size:16px!important;"><strong>D</strong></span><span style="color: #929bbd; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"> ${member.phone} | </span>`
                 }
-                //IF WEBINAR LINK IS NEEDED
-                if (showWebinarLink === true) {
-                    if (
-                        member.title ===
-                            'Business Development Representative' ||
-                        member.name === 'GIGI LUCHETTI' ||
-                        member.name === 'OTTO DEMUTH'
-                    ) {
-                        sourcecode += ` <span style="color: #1796ff; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">
-                    <strong>E </strong>
-                </span>
-                <a style="color: #929bbd!important; font-size: 16px!important; line-height: 30px!important; text-decoration: underline" href="mailto:${member.email}">
-                    <span style="color: #929bbd; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">${member.email}</span>
-                </a>
-                <br>
-                <p></p>
-                <span style="color: #1796ff; line-height: 30px!important; text-decoration: none; font-family: Calibri; font-size: 16px!important;">
-                    <strong>💻WEBINAR:</strong>
-                </span>
-                <a style="font-size: 16px!important; text-decoration-color:#707ca9;" href=${link} target="_blank" rel="noopener">
-                    <span style="color: #707ca9; line-height: 30px!important;  font-family: Calibri; font-size: 16px!important;">
-                  ${linkText}
-                    </span>
-                </a>
-                <br>
-                <br></div>`
-                    } else if (
-                        member.title === 'Enterprise Account Executive' ||
-                        member.title === 'Emerging Brands Account Executive' ||
-                        member.name === 'WILL MORGAN'
-                    ) {
-                        sourcecode += ` <span style="color: #1796ff; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">
-                    <strong>E </strong>
-                </span>
-                <a style="color: #929bbd!important; font-size: 16px!important; line-height: 30px!important; text-decoration: underline" href="mailto:${member.email}">
-                    <span style="color: #929bbd; line-height: 30px!important; font-family: Calibri; font-size: 16px!important;">${member.email}</span>
-                </a>
-                <br>
-                <p></p>
-                <span style="color: #1796ff; line-height: 30px!important; text-decoration: none; font-family: Calibri; font-size: 16px!important;">
-                    <strong>💻WEBINAR:</strong>
-                </span>
-                <a style="font-size: 16px!important; text-decoration-color:#707ca9;" href=${link} target="_blank" rel="noopener">
-                    <span style="color: #707ca9; line-height: 30px!important;  font-family: Calibri; font-size: 16px!important;">${linkText}
-        
-                    </span>
-                </a>
                 <br>
                 <br></div>`
                     } else {
