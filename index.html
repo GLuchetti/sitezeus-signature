@@ -228,6 +228,10 @@
                 { name: 'ALAN MAY', appLinkName: 'alan-may' },
                 { name: 'AARON BERGLAND', appLinkName: 'aaron-bergland' },
             ]
+            let salesBookMembers = [
+                { name: 'EMMA KEENEY', hubLinkName: 'ekeeney2' },
+                { name: 'MITCHELL GUNDERSON', hubLinkName: 'mitchell-gunderson' },
+            ]
 
             let bdrMembers = [
                 {
@@ -265,6 +269,13 @@
                         sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://scheduler.zoom.us/${appSetMember.appLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Schedule time with me</span></a>`
                     }
                 })
+               
+                salesBookMembers.forEach((salesMember) => {
+                    if (member.name === salesMember.name) {
+                        sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://meetings.hubspot.com/${salesMember.hubLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Book time with me</span></a>`
+                    }
+                })
+
                 if (member.img) {
                     sourcecode += `<img src="${member.img}?noresize" width="114" height="114" /><br><br>`
                 }
