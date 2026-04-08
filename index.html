@@ -26,7 +26,6 @@
                 width: 30px;
                 height: 30px;
                 cursor: pointer;
-                /* user-select: none; */
             }
 
             .signature .source-link img {
@@ -46,6 +45,7 @@
     <body>
         <div class="signatures"></div>
 
+        <script>
             let team = [
                 {
                     name: 'HANNIBAL BALDWIN',
@@ -61,8 +61,6 @@
                     email: 'sryan@sitezeus.com',
                     img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_sean-ryan2.png',
                 },
-
-                
                 {
                     name: 'OLIVIA BOLTON',
                     title: 'VP of Client Success',
@@ -88,8 +86,6 @@
                     title: 'Data Analytics Intern',
                     email: 'nlama@sitezeus.com',
                 },
-
-                
                 {
                     name: 'JORGE HERMEZ',
                     title: 'Chief Product Officer',
@@ -139,8 +135,6 @@
                     email: 'jmartinez@sitezeus.com',
                     img: 'https://f.hubspotusercontent20.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_juan-martinez.png',
                 },
-
-
                 {
                     name: 'IAN WALSH',
                     title: 'Chief Revenue Officer',
@@ -172,7 +166,6 @@
                     phone: '630.453.1287',
                     email: 'mitchg@sitezeus.com',
                 },
-                
                 {
                     name: 'GIGI LUCHETTI',
                     title: 'Business Development Manager',
@@ -197,7 +190,6 @@
                     phone: '973.487.7855',
                     email: 'abenton@sitezeus.com',
                 },
-
                 {
                     name: 'KATIE DRIGGERS',
                     title: 'Product Marketing Manager',
@@ -211,8 +203,6 @@
                     email: 'tkingsley@sitezeus.com',
                     img: 'https://1763074.fs1.hubspotusercontent-na1.net/hubfs/1763074/Company%20headshots/Signature%20Headshots%20ALL_ty-kingsley.png',
                 },
-
-                
                 {
                     name: 'DREW WAGNER',
                     title: 'Chief Financial Officer',
@@ -228,6 +218,7 @@
                 { name: 'ALAN MAY', appLinkName: 'alan-may' },
                 { name: 'AARON BERGLAND', appLinkName: 'aaron-bergland' },
             ]
+
             let salesBookMembers = [
                 { name: 'EMMA KEENEY', hubLinkName: 'ekeeney2' },
                 { name: 'MITCHELL GUNDERSON', hubLinkName: 'mitchell-gunderson' },
@@ -269,7 +260,7 @@
                         sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://scheduler.zoom.us/${appSetMember.appLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Schedule time with me</span></a>`
                     }
                 })
-               
+
                 salesBookMembers.forEach((salesMember) => {
                     if (member.name === salesMember.name) {
                         sourcecode += `<a style="padding-bottom: 20px;display:block;font-size:16px!important;" href="https://meetings.hubspot.com/${salesMember.hubLinkName}" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;">Book time with me</span></a>`
@@ -286,31 +277,23 @@
                 if (member.phone) {
                     sourcecode += `<span style="color: #1796ff; line-height: 30px!important;font-family:Calibri; font-size:16px!important;"><strong>D</strong></span><span style="color: #929bbd; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"> ${member.phone} | </span>`
                 }
-                <br>
-                <br></div>`
-                    } else {
-                        sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a><br><br></div>`
-                    }
+
+                if (
+                    member.title === 'Business Development Representative' ||
+                    member.title === 'Sr. Business Development Representative' ||
+                    member.name === 'GIGI LUCHETTI'
+                ) {
+                    sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/?utm_source=BDR&utm_medium=Signature&utm_campaign=HomePage&utm_content=HomePageBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a> | <a style="font-size:16px!important;" href="https://sitezeus.com/schedule-a-demo/?utm_source=BDR&utm_medium=Signature&utm_campaign=SAD&utm_content=SADBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SCHEDULE A DEMO</strong></span></a><br><br></div>`
                 } else {
-                    if (
-                        member.title ===
-                            'Business Development Representative' ||
-                        member.title ===
-                            'Sr. Business Development Representative' ||
-                        member.name === 'GIGI LUCHETTI'
-                    ) {
-                        sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/?utm_source=BDR&utm_medium=Signature&utm_campaign=HomePage&utm_content=HomePageBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a> | <a style="font-size:16px!important;" href="https://sitezeus.com/schedule-a-demo/?utm_source=BDR&utm_medium=Signature&utm_campaign=SAD&utm_content=SADBDR" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SCHEDULE A DEMO</strong></span></a><br><br></div>`
-                    } else {
-                        sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a><br><br></div>`
-                    }
+                    sourcecode += `<span style="color: #1796ff; line-height: 30px!important; font-family:Calibri; font-size:16px!important;"><strong>E </strong></span><a style="color: #929bbd!important; font-size:16px!important; line-height: 30px!important; text-decoration:underline" href="mailto:${member.email}"><span style="color: #929bbd; line-height: 30px!important;font-family:Calibri; font-size:16px!important;">${member.email}</span></a><br><a style="font-size:16px!important;" href="https://sitezeus.com/" target="_blank" rel="noopener"><span style="color: #1796ff; line-height: 30px!important; text-decoration: underline;font-family:Calibri; font-size:16px!important;"><strong>SITEZEUS.COM</strong></span></a><br><br></div>`
                 }
 
                 let copysource = `
-            		  	<div class="copy-source">
-            				<textarea onfocus="this.select();" onmouseup="return false;">${sourcecode}</textarea>
-            				<br><br><br>
-            			</div>
-            		  `
+                    <div class="copy-source">
+                        <textarea onfocus="this.select();" onmouseup="return false;">${sourcecode}</textarea>
+                        <br><br><br>
+                    </div>
+                `
 
                 signature.innerHTML += sourcecode + copysource
                 document.querySelector('.signatures').appendChild(signature)
